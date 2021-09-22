@@ -1,0 +1,47 @@
+https://www.youtube.com/watch?v=pTFZFxd4hOI
+
+-Docker is a platform for building, running and shipping applications so that applications will work same in every machines.
+-Reasons why applications work in one machine, but not in another machine.
+	-one or more files missing (wrong deployment)
+	-software version mismatch
+	-different configuration settings (environment variables)
+-with Docker, applications can be packaged with everything it needs and can be run in anywhere.
+-Docker run applications in isolated environment.
+-once application is not needed anymore, can be removed together without messing the existing things
+
+run an application with dependencies:
+	docker-compose up
+remove an application with its dependencies:
+	docker-compose down --rmi all
+	
+virtual machine: an abstraction of a machine on a physical hardware. we can run several virtual machines on a real physical machine
+Eg: in Windows, mac and linux can be run as virtual machine on top of hypervisor. Hypervisor is a software to create, manage
+virtual machines. It's run on top of the operating system.
+Hypervisors:
+-VirtualBox, VMware (cross platforms)
+-Hyper-v (Windows only)
+
+Problems with VMs:
+-Each VM needs a full copy of OS with license
+-Slow to start since internal operating system has to be loaded just like physicl machine
+-Resource intensive since VMs takes actual slices of physical hardware resources like CPU, memory and disk space
+
+container: an isolated environment for running an application
+-allow running multiple applications in isolation
+-are lightweight. They don't need a full operating system
+-use OS of the host. (no need to have secondary license)
+-start quickly
+-need less hardware resources
+
+architecture:
+-uses client-server architecture
+-client talks with server using REST API
+-server also called as docker engine sits on the background & takes care of building and running docker containers.
+-container is just a process.
+-all containers of a host share the operating system of the host. They share kernel of the host
+(kernel is the core of an operating system)
+(A kernel manages applications and hardware resources)
+-linx machine only runs linux container.
+-but windows machine runs windows + linux container. Because Windows 10 is shifted with custom-built linux kernel in addition to windows kernel.
+-for mac, it uses light weight linux VM to run linux container.
+-
